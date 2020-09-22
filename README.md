@@ -13,6 +13,12 @@ This repo does not comleted yet
     access control with token
     api documentation with drf_yasg
 
+    articles are associated with a creator
+    Only authenticated users may create articles
+    Only the creator of a articles may update or delete it
+    Unauthenticated requests have full read-only access
+
+
   
 ### Models:   
     Post,   
