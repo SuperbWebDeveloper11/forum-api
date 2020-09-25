@@ -3,67 +3,36 @@ This repo does not comleted yet
 
 ## Forum API:  
   
+## Installed Applications:  
+
+```python
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+    'drf_yasg',
+    'articles.apps.ArticlesConfig',
+    'posts.apps.PostesConfig',
+]
+```
 
 ### Features:  
-    Post crud operations  
-    Comment crud operations  
-    users could like post    
-    users could like comments    
-    users could signup + login (not finished yet)
-    access control with token
-    api documentation with drf_yasg
+    includin login + logout urls from rest_framework.urls
 
+    - posts app :
+    Posts crud operations using viewsets + adding comments action  
+    posts are associated with a creator
+    Only authenticated users may create posts
+    Only the creator of a posts may update or delete it
+    Unauthenticated requests have full read-only access
+
+    - articles app :
+    Articles crud operations using generic views  
     articles are associated with a creator
     Only authenticated users may create articles
     Only the creator of a articles may update or delete it
     Unauthenticated requests have full read-only access
 
+    api documentation with drf_yasg
 
-  
-### Models:   
-    Post,   
-    Comment,   
-    LikePost,   
-    LikeComments  
-  
-### Serializers:  
-    PostSerializer   
-    CommentSerializer   
-    LikePostSerializer   
-    LikeCommentSerializer  
-  
-  
-### Ex: requesting the first post   
-  
-curl localhost:8000/blog/1/ | json_pp   
-  
-```json
-{  
-    "id" : 1,  
-    "body" : "first post",  
-    "created_by" : 1,  
-    "likes" : [  
-    {  
-        "post" : 1,  
-        "liked_by" : 2,  
-        "id" : 1  
-    }  
-    ],  
-    "comments" : [  
-    {  
-        "post" : 1,  
-        "id" : 1,  
-        "created_by" : 2,  
-        "body" : "first comment"  
-    },  
-    {  
-        "id" : 2,  
-        "created_by" : 2,  
-        "body" : "second comment",  
-        "post" : 1  
-    }  
-    ]  
-}  
-```
-  
-### when i create a user instance manually in the admin app and i create a Token object manually also the login view work fine, but using the UserSerializer and UserCreate view the token does not created automatically and even if i create it (the token) manually in the django admin i can't login - the authenticat() method return None instead 
+
+
