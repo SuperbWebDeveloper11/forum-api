@@ -1,6 +1,4 @@
 
-This repo does not comleted yet
-
 ## Forum API:  
   
 ## Installed Applications:  
