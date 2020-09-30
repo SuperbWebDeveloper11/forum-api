@@ -5,8 +5,15 @@ from . import views
 
 
 router = DefaultRouter()
-router.register(r'posts', views.PostViewSet)
+router.register('', views.PostViewSet)
 
+urlpatterns = [
+    # comments crud operations
+    # path('<int:pk>/comments/', views.CommentList.as_view(), name='comment_list'),
+    # path('<int:pk>/comments/<int:comment_pk>/', views.CommentDetail.as_view(), name='comment_detail'),
+]
+
+urlpatterns += router.urls
 
 '''
 

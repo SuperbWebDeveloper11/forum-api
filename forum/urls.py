@@ -32,6 +32,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # articles urls
     path('articles/', include('articles.urls')), 
+    path('posts/', include('posts.urls')), 
     # admin urls
     path('admin/', admin.site.urls),
     # drf_yasg configuration
@@ -44,4 +45,4 @@ urlpatterns = [
 
 # appending 'users and groups' urls and 'posts' urls
 urlpatterns += usersgroups_router.urls
-urlpatterns += posts_router.urls
+# urlpatterns += posts_router.urls
